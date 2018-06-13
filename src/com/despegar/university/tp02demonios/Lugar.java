@@ -37,7 +37,7 @@ public class Lugar {
 
     public List<Alma> almasCazables(Demonio demonio){
         List<Alma> cazables = new ArrayList<Alma>();
-        for(Alma alma; this.getAlmas()){
+        for(Alma alma: this.getAlmas()){
             if (demonio.puedeCazar(alma)){
                 cazables.add(alma);
             }

@@ -1,10 +1,14 @@
 package com.despegar.university.tp02demonios;
 
 
+import java.util.List;
+
 public class DemonioSombra extends Demonio {
 
-    private final Integer limiteValor = 50;
 
+    public DemonioSombra(List<Alma> almas, int maldad, int limiteValor) {
+        super(almas, maldad, limiteValor);
+    }
 
     public boolean puedeCazar(Alma alma){
         if(super.puedeCazar(alma)){

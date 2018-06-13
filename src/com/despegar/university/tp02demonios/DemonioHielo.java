@@ -1,9 +1,13 @@
 package com.despegar.university.tp02demonios;
 
 
+import java.util.List;
+
 public class DemonioHielo extends Demonio {
 
-
+    public DemonioHielo(List<Alma> almas, int maldad, int limiteValor) {
+        super(almas, maldad, limiteValor);
+    }
     @Override
     public boolean puedeCazar(Alma alma) {
         if(super.puedeCazar(alma)){

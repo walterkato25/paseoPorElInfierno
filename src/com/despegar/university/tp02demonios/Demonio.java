@@ -31,6 +31,27 @@ abstract public class Demonio {
         this.aplicarCastigo(alma);
     }
 
+    public List<Alma> getAlmas() {
+        return almas;
+    }
+
+    public void cazar(Lugar lugar){
+        List<Alma> almasAux = new ArrayList<Alma>();
+        for(Alma alma: lugar.getAlmas()){
+            if(this.puedeCazar(alma)){
+                almasAux.add(alma);
+                this.addAlma(alma);
+            }else{
+                this.atormentar(alma);
+            }
+        }
+        lugar.getAlmas().removeAll(almasAux);
+    }
+
+    public void addAlma(Alma alma){
+        this.getAlmas().add(alma);
+    }
+
     protected abstract void aplicarCastigo(Alma alma);
 
     public int getLimiteValor() {
