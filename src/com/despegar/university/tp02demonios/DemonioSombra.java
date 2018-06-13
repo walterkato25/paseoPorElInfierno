@@ -15,6 +15,15 @@ public class DemonioSombra extends Demonio {
         }
     }
 
+    public void atormentar(Alma alma){
+        super.atormentar(alma);
+        alma.disminuirMitadBondad();
+        this.incrementarAtormentado();
+    }
+    public void aplicarCastigo(Alma alma){
+        alma.disminuirMitadBondad();
+    }
+
 }
 /*○ para el demonio de sombras​, que el nivel de valor del alma esté por debajo de
 un límite dado, que actualmente es de 50 y es el mismo para todos los demonios

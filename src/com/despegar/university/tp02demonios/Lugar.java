@@ -6,14 +6,23 @@ import java.util.List;
 public class Lugar {
 
     private String nombre;
-    private List<Alma> almas = new ArrayList<Alma>();
+    private List<Alma> almas;
+
+    public Lugar(String nombre, List<Alma> almas) {
+        this.nombre = nombre;
+        this.almas = almas;
+    }
 
     public void agregarAlma(Alma alma){
         this.almas.add(alma);
     }
 
+    public List<Alma> getAlmas() {
+        return almas;
+    }
+
     public boolean removerAlma(Alma alma){
-       return(this.almas.remove(alma));
+       return (this.almas.remove(alma));
     }
 
     @Override
@@ -24,6 +33,16 @@ public class Lugar {
     @Override
     public boolean equals(Object obj) {
         return super.equals(obj);
+    }
+
+    public List<Alma> almasCazables(Demonio demonio){
+        List<Alma> cazables = new ArrayList<Alma>();
+        for(Alma alma; this.getAlmas()){
+            if (demonio.puedeCazar(alma)){
+                cazables.add(alma);
+            }
+        }
+        return cazables;
     }
 }
 /*

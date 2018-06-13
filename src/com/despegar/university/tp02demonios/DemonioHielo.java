@@ -13,6 +13,10 @@ public class DemonioHielo extends Demonio {
             return false;
         }
     }
+
+    public void aplicarCastigo(Alma alma){
+        alma.setFriolenta(true);
+    }
 }
 /*
 
