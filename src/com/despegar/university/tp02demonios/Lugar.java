@@ -1,4 +1,4 @@
-package tp02demonios;
+package com.despegar.university.tp02demonios;
 
 import java.util.ArrayList;
 import java.util.List;

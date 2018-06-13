@@ -1,4 +1,5 @@
-package tp02demonios;
+package com.despegar.university.tp02demonios;
+
 
 public class DemonioSombra extends Demonio {
 
@@ -7,7 +8,7 @@ public class DemonioSombra extends Demonio {
 
     public boolean puedeCazar(Alma alma){
         if(super.puedeCazar(alma)){
-           return (alma.getValor() < limiteValor);
+           return (alma.getValor() < this.getLimiteValor());
         }
         else{
             return false;

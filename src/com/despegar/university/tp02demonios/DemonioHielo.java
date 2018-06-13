@@ -1,4 +1,5 @@
-package tp02demonios;
+package com.despegar.university.tp02demonios;
+
 
 public class DemonioHielo extends Demonio {
 
@@ -8,10 +9,9 @@ public class DemonioHielo extends Demonio {
         if(super.puedeCazar(alma)){
             return (alma.esFriolenta());
         }
-        else{
+        else {
             return false;
         }
-            ;
     }
 }
 /*
