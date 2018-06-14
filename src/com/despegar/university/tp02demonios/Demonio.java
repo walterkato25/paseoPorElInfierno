@@ -3,7 +3,7 @@ package com.despegar.university.tp02demonios;
 import java.util.ArrayList;
 import java.util.List;
 
-abstract public class Demonio {
+abstract public class Demonio implements Visitable{
 
     private List<Alma> almas = new ArrayList<Alma>();
     private int cantJodidas = 0;
@@ -16,13 +16,21 @@ abstract public class Demonio {
         this.limiteValor = limiteValor;
     }
 
+    public int getMaldad() {
+        return maldad;
+    }
+
     public void setMaldad(int maldad) {
         this.maldad = maldad;
     }
 
     public boolean puedeCazar(Alma alma){
-        return (this.maldad > alma.getBondad()); //modificar en breve para que devuelva la comparacion del nivel de  maldad
+        return (this.getMaldad() > alma.getBondad()); //modificar en breve para que devuelva la comparacion del nivel de  maldad
     };
+
+    public boolean puedeAtormentar(Alma alma){
+        return !(this.puedeCazar(alma));
+    }
 
     public void atormentar(Alma alma){
         alma.descontarBondad();
@@ -72,6 +80,9 @@ abstract public class Demonio {
 
     public List<Alma> rendirCuenta(){
         return this.almas;
+    }
+    public boolean aceptarTarea(Visitor mision){
+        return mision.ejecutarMision(this);
     }
 }
 /*

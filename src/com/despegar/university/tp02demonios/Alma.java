@@ -31,4 +31,5 @@ public class Alma {
         this.bondad = this.bondad / 2;
     }
 
+
 }
