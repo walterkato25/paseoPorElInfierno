@@ -6,8 +6,8 @@ import java.util.List;
 public class DemonioSombra extends Demonio {
 
 
-    public DemonioSombra(List<Alma> almas, int maldad, int limiteValor) {
-        super(almas, maldad, limiteValor);
+    public DemonioSombra(List<Alma> almas, int maldad, int limiteValor, int id) {
+        super(almas, maldad, limiteValor, id);
     }
 
     public boolean puedeCazar(Alma alma){

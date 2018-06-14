@@ -2,7 +2,7 @@ package com.despegar.university.tp02demonios;
 
 public class Normal implements Estado {
     public String getEstado(){
-        return "Normal"
+        return "Normal";
     }
     public void mejorarEstado(Demonio demonio){
         demonio.setEstado(new Feliz());

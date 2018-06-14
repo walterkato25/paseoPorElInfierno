@@ -7,22 +7,22 @@ import java.util.Map;
 
 public class Diablo {
     List<Demonio> demonios;
-    Map<int,int> poder;
+    HashMap<Integer,Integer> poder;
 
     public Diablo(List<Demonio> demonios) {
         this.demonios = demonios;
-        this.poder = new HashMap<int, int>();
+        this.poder = new HashMap<Integer, Integer>();
     }
 
     public List<Demonio> getDemonios() {
-        return demonios;
+        return this.demonios;
     }
 
-    public HashMap<int, int> getPoder() {
-        return poder;
+    public HashMap<Integer, Integer> getPoder() {
+        return this.poder;
     }
 
-    public void cobrarCuenta(Demonio demonio){
+    public void cobrarCuenta(){
         for (Demonio demonio: this.getDemonios()){
             //se fija la cantidad de almas para castigarlo o no.
             if (demonio.getAlmas().size() > 0){
@@ -41,9 +41,9 @@ public class Diablo {
     }
 
     private Demonio getDemonioById(int id){
-        Demonio aux = new Demonio();
+        Demonio aux = this.getDemonios().get(0);
         for (Demonio demonio: this.getDemonios()){
-            if(demonio.getId() = id){
+            if(demonio.getId() == id){
                 aux = demonio;
                 break;
             }
@@ -52,9 +52,9 @@ public class Diablo {
     }
 
     public Demonio pequenioDemonio(){
-        int minimo = 99999999;
-        int demonioId = 0;
-        for (Map.Entry<int, int> entry : this.getPoder().entrySet()){
+        Integer minimo = new Integer(99999999);
+        Integer demonioId = new Integer(0);
+        for (Map.Entry<Integer, Integer> entry : this.getPoder().entrySet()){
             if(minimo > entry.getValue()){
                 minimo = entry.getValue();
                 demonioId = entry.getKey();

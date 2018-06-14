@@ -120,7 +120,7 @@ abstract public class Demonio implements Visitable{
         if (cumpleMision){
             this.cambiarEstadoPorCumplimiendoDeMision();
         }
-        return cumpleMision
+        return cumpleMision;
     }
 }
 /*

@@ -1,10 +1,9 @@
 package com.despegar.university.tp02demonios;
 
-import java.util.List;
 
-public class Zafari implement Visitor {
-    Lugar lugar;
-    int porcentaje;
+public class Zafari implements Visitor {
+    private Lugar lugar;
+    private int porcentaje;
 
     public Zafari(Lugar lugar, int porcentaje) {
         this.lugar = lugar;
@@ -12,16 +11,16 @@ public class Zafari implement Visitor {
     }
 
     public Lugar getLugar() {
-        return lugar;
+        return this.lugar;
     }
 
     public int getPorcentaje() {
-        return porcentaje;
+        return this.porcentaje;
     }
 
     public boolean ejecutarMision(Demonio demonio){
         int cantAlmasCazables = this.lugar.almasCazables(demonio).size();
-        int cantidadACazar = (this.getPorcentaje() * this.getLugar().getAlmas())/100;
-        return (cantAlmasCazables > cantidadACazar )
+        int cantidadACazar = this.getPorcentaje() * this.getLugar().getAlmas().size()/100;
+        return (cantAlmasCazables > cantidadACazar );
     }
 }

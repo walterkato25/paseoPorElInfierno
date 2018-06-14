@@ -5,10 +5,10 @@ import java.util.List;
 
 public class DemonioHielo extends Demonio {
 
-    public DemonioHielo(List<Alma> almas, int maldad, int limiteValor) {
-        super(almas, maldad, limiteValor);
+    public DemonioHielo(List<Alma> almas, int maldad, int limiteValor, int id) {
+        super(almas, maldad, limiteValor, id);
     }
-   
+
     @Override
     public boolean puedeCazar(Alma alma) {
         boolean puedeCazar = super.puedeCazar(alma);

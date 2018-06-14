@@ -7,6 +7,17 @@ public class Alma {
     private Integer valor;
     private boolean friolenta;
 
+    public Alma(String nombre, Integer bondad, Integer valor, boolean friolenta) {
+        this.nombre = nombre;
+        this.bondad = bondad;
+        this.valor = valor;
+        this.friolenta = friolenta;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
     public Integer getBondad() {
         return this.bondad;
     }
