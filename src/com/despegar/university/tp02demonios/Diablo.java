@@ -65,6 +65,7 @@ public class Diablo {
 
     public void castigar(Demonio demonio){
         demonio.reducirMaldad();
+        demonio.setEstado(new Deprimido());
     }
 
     public void recompensar(Demonio demonio){

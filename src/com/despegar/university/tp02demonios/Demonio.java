@@ -10,12 +10,22 @@ abstract public class Demonio implements Visitable{
     private int maldad;
     private int limiteValor;
     private int id;
+    private Estado estado;
 
     public Demonio(List<Alma> almas, int maldad, int limiteValor, int id) {
         this.almas = almas;
         this.maldad = maldad;
         this.limiteValor = limiteValor;
         this.id = id;
+        this.estado = new Normal();
+    }
+
+    public Estado getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Estado estado) {
+        this.estado = estado;
     }
 
     public int getId() {
@@ -35,7 +45,7 @@ abstract public class Demonio implements Visitable{
     }
 
     public boolean puedeCazar(Alma alma){
-        return (this.getMaldad() > alma.getBondad()); //modificar en breve para que devuelva la comparacion del nivel de  maldad
+        return this.getEstado().puedeCazar(alma,this);
     };
 
     public boolean puedeAtormentar(Alma alma){
@@ -64,6 +74,9 @@ abstract public class Demonio implements Visitable{
             }
         }
         lugar.getAlmas().removeAll(almasAux);
+        if (this.getAlmas().size() > 20){
+            this.setEstado(new Feliz());
+        }
     }
 
     public void addAlma(Alma alma){
@@ -88,6 +101,10 @@ abstract public class Demonio implements Visitable{
         this.setMaldad(this.maldad/10);
     }
 
+    public void cambiarEstadoPorCumplimiendoDeMision(){
+        this.getEstado().mejorarEstado(this);
+    }
+
     public int rendirCuenta(){
         int poder = 0;
         for (Alma alma: this.getAlmas()){
@@ -98,7 +115,12 @@ abstract public class Demonio implements Visitable{
     }
 
     public boolean aceptarTarea(Visitor mision){
-        return mision.ejecutarMision(this);
+        //si puede realizar la mision tengo que cambiarle el animo.
+        boolean cumpleMision = mision.ejecutarMision(this);
+        if (cumpleMision){
+            this.cambiarEstadoPorCumplimiendoDeMision();
+        }
+        return cumpleMision
     }
 }
 /*

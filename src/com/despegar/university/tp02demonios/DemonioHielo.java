@@ -8,14 +8,16 @@ public class DemonioHielo extends Demonio {
     public DemonioHielo(List<Alma> almas, int maldad, int limiteValor) {
         super(almas, maldad, limiteValor);
     }
+   
     @Override
     public boolean puedeCazar(Alma alma) {
-        if(super.puedeCazar(alma)){
-            return (alma.esFriolenta());
+        boolean puedeCazar = super.puedeCazar(alma);
+        if(puedeCazar){
+            if(this.getEstado().puedeCambiar()){
+                alma.setFriolenta(true);
+            }
         }
-        else {
-            return false;
-        }
+        return puedeCazar;
     }
 
     public void aplicarCastigo(Alma alma){

@@ -11,12 +11,13 @@ public class DemonioFuego extends Demonio {
 
     @Override
     public boolean puedeCazar(Alma alma) {
-        if(super.puedeCazar(alma)){
-            return (!alma.esFriolenta());
+        boolean puedeCazar = super.puedeCazar(alma);
+        if(puedeCazar){
+            if(this.getEstado().puedeCambiar()){
+                alma.setFriolenta(false);
+            }
         }
-        else {
-            return false;
-        }
+        return puedeCazar;
     }
 
     public void aplicarCastigo(Alma alma){
