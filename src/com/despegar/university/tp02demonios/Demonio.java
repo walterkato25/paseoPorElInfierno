@@ -9,11 +9,21 @@ abstract public class Demonio implements Visitable{
     private int cantJodidas = 0;
     private int maldad;
     private int limiteValor;
+    private int id;
 
-    public Demonio(List<Alma> almas, int maldad, int limiteValor) {
+    public Demonio(List<Alma> almas, int maldad, int limiteValor, int id) {
         this.almas = almas;
         this.maldad = maldad;
         this.limiteValor = limiteValor;
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setAlmas(List<Alma> almas) {
+        this.almas = almas;
     }
 
     public int getMaldad() {
@@ -78,9 +88,15 @@ abstract public class Demonio implements Visitable{
         this.setMaldad(this.maldad/10);
     }
 
-    public List<Alma> rendirCuenta(){
-        return this.almas;
+    public int rendirCuenta(){
+        int poder = 0;
+        for (Alma alma: this.getAlmas()){
+            poder = poder + alma.getBondad() + alma.getValor();
+        }
+        this.setAlmas(new ArrayList<Alma>());
+        return poder;
     }
+
     public boolean aceptarTarea(Visitor mision){
         return mision.ejecutarMision(this);
     }
